@@ -56,12 +56,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: FutureBuilder(
           future: _getUsers(),
           builder: (BuildContext context, AsyncSnapshot snapshot){
-            print(snapshot.data);
+            //print(snapshot.data);
 
             if(snapshot.data == null){
               return Container(
                 child: Center(
-                  child: Text("Loading....!"),
+                  child: Text("Loading....!",style: new TextStyle(color: Colors.blueAccent, fontSize: 30.0), ),
+
                 ),
               );
             }else{
@@ -119,39 +120,29 @@ class DetailPage extends StatelessWidget {
         appBar: AppBar(
             title: Text(user.name),
         ),
-        body: new Container(
-
-          padding: EdgeInsets.only(left: 10.0, top: 10.0),
-          child: new Column(
-            children: <Widget>[
-
-              new Expanded(child: new Text('Name' + user.name,
-                style: new TextStyle(color: Colors.blueAccent, fontSize: 20.0),
-              ),
-              ),
-
-              new Expanded(child: new Text('Email' + user.email),
-              ),
-
-              new Expanded(child: new Text('About' + user.about),
-              ),
-
-              new Expanded(child: new Image.network(user.picture),
-              ),
-
-            ],
-          ),
 
 
 
-    /*
-          padding: new EdgeInsets.only(left: 10.0, top: 30.0),
-          child: new Text( "Name: " +  user.name, style: new TextStyle(color: Colors.blueAccent, fontSize: 20.0),
-          ),
+        body: new Center(
+            child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Container(
+                    width: 190.0,
+                    height: 190.0,
+                    decoration: new BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: new DecorationImage(
+                            fit: BoxFit.fill,
+                            image: new NetworkImage(
+                                user.picture)
+                        )
+                    )),
+                new Text(user.email, style: new TextStyle(color: Colors.blueAccent, fontSize: 20.0),),
+              ],
+            )),
 
-    */
-
-      ),
     );
   }
 }
