@@ -77,7 +77,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index){
                   return ListTile(
+                    leading: CircleAvatar(
+                     backgroundImage: NetworkImage(
+                       snapshot.data[index].picture
+                     ),
+                    ),
+
                     title: Text(snapshot.data[index].name),
+                    subtitle: Text(snapshot.data[index].email),
                   );
                 }
               );
