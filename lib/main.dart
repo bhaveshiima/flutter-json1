@@ -117,8 +117,41 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(user.name),
+            title: Text(user.name),
         ),
+        body: new Container(
+
+          padding: EdgeInsets.only(left: 10.0, top: 10.0),
+          child: new Column(
+            children: <Widget>[
+
+              new Expanded(child: new Text('Name' + user.name,
+                style: new TextStyle(color: Colors.blueAccent, fontSize: 20.0),
+              ),
+              ),
+
+              new Expanded(child: new Text('Email' + user.email),
+              ),
+
+              new Expanded(child: new Text('About' + user.about),
+              ),
+
+              new Expanded(child: new Image.network(user.picture),
+              ),
+
+            ],
+          ),
+
+
+
+    /*
+          padding: new EdgeInsets.only(left: 10.0, top: 30.0),
+          child: new Text( "Name: " +  user.name, style: new TextStyle(color: Colors.blueAccent, fontSize: 20.0),
+          ),
+
+    */
+
+      ),
     );
   }
 }
