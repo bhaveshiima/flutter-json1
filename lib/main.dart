@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget{
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'User through JSON'),
+      home: new MyHomePage(title: 'Flutter Demo using JSON'),
       );
   }
 }
